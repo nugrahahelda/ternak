@@ -1,0 +1,41 @@
+@import '../../../../vendor/filament/filament/resources/css/theme.css';
+
+@source '../../../../app/Filament/**/*';
+@source '../../../../resources/views/filament/**/*';
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+    /* Make tables scroll horizontally on mobile */
+    .fi-ta-table-container {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    /* Optimize table cell padding on mobile */
+    .fi-ta-cell {
+        padding: 0.5rem !important;
+        font-size: 0.875rem;
+    }
+
+    /* Make form fields stack vertically on mobile */
+    .fi-fo-field-wrp-label {
+        font-size: 0.875rem;
+    }
+
+    /* Reduce padding in cards on mobile */
+    .fi-section {
+        padding: 1rem !important;
+    }
+
+    /* Make buttons full width on mobile */
+    .fi-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    /* Optimize modal on mobile */
+    .fi-modal-content {
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+}
