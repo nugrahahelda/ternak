@@ -32,7 +32,7 @@ COPY . .
 
 RUN composer install --optimize-autoloader --no-scripts --no-interaction
 
-RUN npm install && npm run build
+RUN npm install && ./node_modules/.bin/vite build
 
 RUN chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache
 
