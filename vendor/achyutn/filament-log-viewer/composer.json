@@ -50,7 +50,7 @@
         "lint": [
             "rector",
             "pint",
-            "phpstan analyse --memory-limit=2G"
+            "phpstan"
         ],
         "test:type-coverage": "pest",
         "test:lint": [
