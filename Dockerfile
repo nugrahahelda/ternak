@@ -1,5 +1,7 @@
 FROM php:8.4-cli
-ARG CACHE_BUST=2026-04-16-v2
+
+ARG CACHE_BUST=2026-04-16-v3
+
 # Install system dependencies
 RUN apt-get update && apt-get install -y \
     git \
@@ -30,10 +32,20 @@ WORKDIR /var/www
 
 COPY . .
 
-RUN composer install --optimize-autoloader --no-scripts --no-interaction
+# Install PHP dependencies (dengan scripts agar Laravel bisa auto-discover)
+RUN composer install --optimize-autoloader --no-interaction
 
+# Build frontend assets
 RUN npm install && chmod +x ./node_modules/.bin/vite && ./node_modules/.bin/vite build
-RUN chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache
+
+# Set permissions
+RUN chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache \
+    && chmod -R 775 /var/www/storage /var/www/bootstrap/cache
+
+# Copy entrypoint script
+COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
+RUN chmod +x /usr/local/bin/docker-entrypoint.sh
 
 EXPOSE 8000
-CMD php -S 0.0.0.0:$PORT -t public
+
+ENTRYPOINT ["docker-entrypoint.sh"]
