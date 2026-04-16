@@ -1,4 +1,4 @@
-FROM php:8.4-fpm
+FROM php:8.4-cli
 ARG CACHE_BUST=2026-04-16-v2
 # Install system dependencies
 RUN apt-get update && apt-get install -y \
@@ -36,5 +36,4 @@ RUN npm install && chmod +x ./node_modules/.bin/vite && ./node_modules/.bin/vite
 RUN chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache
 
 EXPOSE 8000
-
-CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=8000"]
+CMD php -S 0.0.0.0:$PORT -t public
