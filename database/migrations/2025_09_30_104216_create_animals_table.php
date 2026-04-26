@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('animals', function (Blueprint $table) {
             $table->id();
             $table->foreignId('farmer_id')->constrained()->onDelete('cascade');
-            $table->enum('type', ['ayam', 'entok', 'ikan']);
+            $table->enum('type', ['puyuh', 'remaja pullet', 'afkir']);
             $table->integer('quantity');
             $table->date('date_acquired');
             $table->text('notes')->nullable();

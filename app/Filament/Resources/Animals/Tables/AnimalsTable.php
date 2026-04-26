@@ -24,14 +24,16 @@ class AnimalsTable
                     ->label('Jenis Ternak')
                     ->badge()
                     ->color(fn (string $state): string => match ($state) {
-                        'ayam' => 'warning',
-                        'entok' => 'info',
-                        'ikan' => 'success',
+                        'puyuh' => 'warning',
+                        'remaja pullet' => 'info',
+                        'afkir' => 'success',
+                    default => 'gray',
                     })
                     ->formatStateUsing(fn (string $state): string => match ($state) {
-                        'ayam' => 'Ayam',
-                        'entok' => 'Entok',
-                        'ikan' => 'Ikan',
+                        'puyuh' => 'Puyuh',
+                        'remaja pullet' => 'Remaja Pullet',
+                        'afkir' => 'Afkir',
+                    default => 'gray',
                     })
                     ->searchable()
                     ->sortable(),
@@ -63,9 +65,9 @@ class AnimalsTable
                 SelectFilter::make('type')
                     ->label('Jenis Ternak')
                     ->options([
-                        'ayam' => 'Ayam',
-                        'entok' => 'Entok',
-                        'ikan' => 'Ikan',
+                        'puyuh' => 'Puyuh',
+                        'remaja pullet' => 'Remaja Pullet',
+                        'afkir' => 'Afkir',
                     ]),
                 SelectFilter::make('farmer')
                     ->label('Peternak')

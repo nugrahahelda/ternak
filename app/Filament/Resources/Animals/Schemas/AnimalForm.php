@@ -23,9 +23,9 @@ class AnimalForm
                 Select::make('type')
                     ->label('Jenis Ternak')
                     ->options([
-                        'ayam' => 'Ayam',
-                        'entok' => 'Entok',
-                        'ikan' => 'Ikan',
+                        'puyuh' => 'Puyuh',
+                        'remaja pullet' => 'Remaja Pullet',
+                        'afkir' => 'Afkir',
                     ])
                     ->required(),
                 TextInput::make('quantity')

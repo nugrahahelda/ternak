@@ -60,7 +60,7 @@ it('can create an animal', function () {
 
 it('can create an egg production record', function () {
     $farmer = Farmer::factory()->create();
-    $animal = Animal::factory()->create(['farmer_id' => $farmer->id, 'type' => 'ayam']);
+    $animal = Animal::factory()->create(['farmer_id' => $farmer->id, 'type' => 'puyuh']);
 
     $eggProduction = EggProduction::factory()->make([
         'animal_id' => $animal->id,
@@ -145,7 +145,7 @@ it('can filter health records by type', function () {
 
 it('can calculate total egg production', function () {
     $farmer = Farmer::factory()->create();
-    $animal = Animal::factory()->create(['farmer_id' => $farmer->id, 'type' => 'ayam']);
+    $animal = Animal::factory()->create(['farmer_id' => $farmer->id, 'type' => 'puyuh']);
 
     EggProduction::factory()->create(['animal_id' => $animal->id, 'quantity' => 100]);
     EggProduction::factory()->create(['animal_id' => $animal->id, 'quantity' => 150]);

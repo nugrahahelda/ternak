@@ -11,9 +11,9 @@ class StatsOverview extends StatsOverviewWidget
 {
     protected function getStats(): array
     {
-        $totalAyam = Animal::where('type', 'ayam')->sum('quantity');
-        $totalEntok = Animal::where('type', 'entok')->sum('quantity');
-        $totalIkan = Animal::where('type', 'ikan')->sum('quantity');
+        $totalPuyuh = Animal::where('type', 'puyuh')->sum('quantity');
+        $totalRemajaPullet = Animal::where('type', 'remaja pullet')->sum('quantity');
+        $totalAfkir = Animal::where('type', 'afkir')->sum('quantity');
 
         $sickAnimals = HealthRecord::where('type', 'sakit')
             ->whereDate('date', '>=', now()->subDays(30))
@@ -21,16 +21,16 @@ class StatsOverview extends StatsOverviewWidget
             ->count('animal_id');
 
         return [
-            Stat::make('Total Ayam', $totalAyam.' ekor')
-                ->description('Jumlah seluruh ayam')
+            Stat::make('Total Puyuh', $totalPuyuh.' ekor')
+                ->description('Jumlah seluruh puyuh')
                 ->descriptionIcon('heroicon-m-arrow-trending-up')
                 ->color('warning'),
-            Stat::make('Total Entok', $totalEntok.' ekor')
-                ->description('Jumlah seluruh entok')
+            Stat::make('Total Remaja Pullet', $totalRemajaPullet.' ekor')
+                ->description('Jumlah seluruh remaja pullet')
                 ->descriptionIcon('heroicon-m-arrow-trending-up')
                 ->color('info'),
-            Stat::make('Total Ikan', $totalIkan.' ekor')
-                ->description('Jumlah seluruh ikan')
+            Stat::make('Total Afkir', $totalAfkir.' ekor')
+                ->description('Jumlah seluruh afkir')
                 ->descriptionIcon('heroicon-m-arrow-trending-up')
                 ->color('success'),
             Stat::make('Hewan Sakit', $sickAnimals.' hewan')

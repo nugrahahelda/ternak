@@ -27,14 +27,14 @@ class EggProductionsTable
                     ->label('Jenis Ternak')
                     ->badge()
                     ->color(fn (string $state): string => match ($state) {
-                        'ayam' => 'warning',
-                        'entok' => 'info',
-                        'ikan' => 'success',
+                        'puyuh' => 'warning',
+                        'remaja afkir' => 'info',
+                        'afkir' => 'success',
                     })
                     ->formatStateUsing(fn (string $state): string => match ($state) {
-                        'ayam' => 'Ayam',
-                        'entok' => 'Entok',
-                        'ikan' => 'Ikan',
+                        'puyuh' => 'Puyuh',
+                        'remaja pullet' => 'Remaja Pullet',
+                        'afkir' => 'Afkir',
                     })
                     ->searchable()
                     ->sortable(),

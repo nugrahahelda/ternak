@@ -87,9 +87,9 @@ class FeedReport extends Page implements HasForms, HasTable
                     ->label('Jenis Ternak')
                     ->badge()
                     ->color(fn (string $state): string => match ($state) {
-                        'ayam' => 'warning',
-                        'entok' => 'info',
-                        'ikan' => 'success',
+                        'puyuh' => 'warning',
+                        'remaja pullet' => 'info',
+                        'afkir' => 'success',
                     }),
                 TextColumn::make('feed_type')
                     ->label('Jenis Pakan')

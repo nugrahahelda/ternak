@@ -18,7 +18,7 @@ class AnimalFactory extends Factory
     {
         return [
             'farmer_id' => \App\Models\Farmer::factory(),
-            'type' => fake()->randomElement(['ayam', 'entok', 'ikan']),
+            'type' => fake()->randomElement(['puyuh', 'remaja pullet', 'afkir']),
             'quantity' => fake()->numberBetween(10, 500),
             'date_acquired' => fake()->dateTimeBetween('-2 years', 'now'),
             'notes' => fake()->optional()->sentence(),
